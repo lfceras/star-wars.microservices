@@ -63,7 +63,7 @@ const planetSchema = new Schema({
 });
 
 planetSchema.statics.list = async function (name) {
-  return await this.find({name: { $regex: name ? name : "" , $options: 'i' }})
+  return await this.find({name: { $regex: name ? name : "" , $options: 'i' }}).sort({name: 1})
     .populate("residents", ["_id", "name"])
     .populate("surface_water", ["_id", "name"])
     .populate("films", ["_id", "title"]);

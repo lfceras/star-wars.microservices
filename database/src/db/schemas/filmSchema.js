@@ -15,7 +15,7 @@ const filmSchema = new Schema({
 })
 
 filmSchema.statics.list = async function(title){
-  return await this.find({title: {$regex: title ? title : "", $options: "i"}})
+  return await this.find({title: {$regex: title ? title : "", $options: "i"}}).sort({title: 1})
   .populate("characters", ["_id", "name"])
   .populate("planets", ["_id", "name"])
 }

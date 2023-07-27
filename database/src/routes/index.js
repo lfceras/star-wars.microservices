@@ -9,6 +9,6 @@ router.get("/:model", middlewares.validateModell,controllers.getData);
 
 router.get("/:model/:id",middlewares.validateModell ,controllers.getDataById)
 
-
-
+router.post('/:model', middlewares.validateModell, controllers.createData)
+ 
 module.exports = router;
